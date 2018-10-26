@@ -10,6 +10,12 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+//Components
+import { TerminadosPage } from '../pages/terminados/terminados.component';
+import { PendientesPage } from '../pages/pendientes/pendientes.component';
+//Servicios
+import { AppService } from '../services/app.service';
+import { addList } from '../pages/addList/add-list.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +23,10 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    TerminadosPage,
+    PendientesPage,
+    addList
   ],
   imports: [
     BrowserModule,
@@ -29,11 +38,15 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    TerminadosPage,
+    PendientesPage,
+    addList
   ],
   providers: [
     StatusBar,
     SplashScreen,
+    AppService,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

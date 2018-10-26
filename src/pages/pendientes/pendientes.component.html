@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>Pendientes</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <img src="../../assets/imgs/pendientes.jpg" alt="Pendientes">
+  <ion-list>
+    <button ion-item *ngFor="let item of _AppService.listTask" (click)="listSelected(item)">
+      {{ item.title }}
+    </button> 
+  </ion-list>
+
+  <ion-fab bottom right>
+      <button ion-fab (click)="addNewList()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+</ion-content>
+  
