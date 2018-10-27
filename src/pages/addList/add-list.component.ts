@@ -16,12 +16,14 @@ export class addList{
         public _AppService: AppService,
         private _navParams: NavParams
     ){
-        console.log(this._navParams);
-        this.list = new Lista(
-            this._navParams.get("title")
-        );
-
-        this._AppService.addNewList( this.list );
+        if(this._navParams.get('list')) {
+            this.list = this._navParams.get('list')
+        }else{
+            this.list = new Lista(
+                this._navParams.get("title")
+            );
+            this._AppService.addNewList( this.list );
+        }        
     }
 
     addTask(){
@@ -30,14 +32,17 @@ export class addList{
 
         const newItem = new ListaItem(this.nameItem);
         this.list.items.push( newItem);
+        this._AppService.saveStorage();
         this.nameItem = "";
     }
 
     updateTask( item: ListaItem ){
         item.isComplete = !item.isComplete;
+        this._AppService.saveStorage();
     }
 
     deleteTask( index: number ){
         this.list.items.splice( index, 1);
+        this._AppService.saveStorage();
     }
 }

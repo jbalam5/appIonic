@@ -17,7 +17,10 @@ export class PendientesPage{
     ) {}
 
     listSelected(list: Lista){
-        console.log(list);
+        this._navCtrl.push( addList, { 
+            title: list.title,
+            list: list
+        })
     }
 
     addNewList(){
